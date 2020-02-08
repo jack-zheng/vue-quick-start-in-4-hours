@@ -1,0 +1,54 @@
+<!--输入 !+Enter 有惊喜--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue本地应用</title>
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+    <div id="app">
+        <div class="input-num">
+            <button @click="sub">
+                -
+            </button>
+            <span>{{ num }}</span>
+            <button @click="add">
+                +
+            </button>
+        </div>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num: 1
+            },
+            methods: {
+                sub: function() {
+                    // console.log('sub')
+                    if (this.num < 1) {
+                        alert("别点了，太小了");
+                    } else {
+                        this.num--;
+                    }
+                },
+                add: function() {
+                    // console.log('add')
+                    if (this.num > 9) {
+                        alert("别点了，太大了");
+                    } else {
+                        this.num++;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

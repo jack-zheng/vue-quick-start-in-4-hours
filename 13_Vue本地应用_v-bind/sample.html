@@ -1,0 +1,47 @@
+<!--输入 !+Enter 有惊喜--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue本地应用</title>
+    <style>
+        .active {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" alt="">
+        <br>
+        <img :src="imgSrc" alt="">
+        <br>
+        <img :src="imgSrc" alt="" :title="imgTitle+'!!!'">
+        <br>
+        <img :src="imgSrc" alt="" :title="imgTitle+'!!!'" :class="isActive?'active':''" @click="toggleIsActive">
+        <br>
+        <img :src="imgSrc" alt="" :title="imgTitle+'!!!'" :class="{active:isActive}" @click="toggleIsActive">
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                imgSrc: "./logo.png",
+                imgTitle: "HeiMa",
+                isActive: false
+            },
+            methods: {
+                toggleIsActive: function() {
+                    this.isActive = !this.isActive;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
